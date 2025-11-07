@@ -1,0 +1,354 @@
+/* =========================
+   Base / Layout
+========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #F6F6F3;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+
+/* =========================
+   Header
+========================= */
+.header {
+  text-align: center;
+  background: #232F3E;
+  color: #fff;
+  margin-bottom: 40px;
+  padding: 28px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.header h1 {
+  color: #FF9900;
+  font-size: 3rem;
+  margin-bottom: 8px;
+  text-shadow: none;
+}
+
+.header p {
+  color: #fff;
+  font-size: 1.2rem;
+  opacity: 1;
+}
+
+
+/* =========================
+   Event Cards Grid
+========================= */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+.event-banner {
+  width: 100%;
+  height: 200px;
+  background-size: 150%;  /* cropped-in look */
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s ease;
+}
+
+.event-content { padding: 20px; }
+
+.event-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.event-description {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.event-details {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.event-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.stat { text-align: center; }
+.stat-count { font-weight: 700; font-size: 1.1rem; color: #2c3e50; }
+.stat-label { color: #4b5563; font-size: 0.9rem; }
+
+
+/* =========================
+   Modal
+========================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: #fff;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-banner {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-header {
+  padding: 30px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.modal-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.modal-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;  /* row & column gap */
+  align-items: center;
+  color: #7f8c8d;
+}
+
+.modal-details .event-detail {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  min-width: 140px;
+  line-height: 1.3;
+}
+
+.modal-body { padding: 30px; }
+
+.section { margin-bottom: 30px; }
+
+.section-title {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+}
+
+
+/* =========================
+   Event Statistics (Modal)
+========================= */
+.stats-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* two equal halves */
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  gap: 5px;                        /* 👈 small space between Yes/No */
+  background: transparent;         /* prevents shared gray bg */
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0;
+  color: #2e2e2e;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.stat-number { font-size: 2rem; font-weight: 700; }
+.stat-label { font-size: 0.9rem; opacity: 0.95; }
+
+.yes-card { background: #eaeaea; } /* green */
+.no-card  { background: #eaeaea; } /* red */
+
+
+/* =========================
+   Attendees Table (Modal)
+========================= */
+.attendees-table { margin-top: 20px; overflow-x: auto; }
+
+.attendees-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0; /* outer border */
+}
+
+.attendees-table th,
+.attendees-table td { border: 1px solid #eaeaea; }
+
+.attendees-table th {
+  background: #232F3E;
+  color: #fff;
+  padding: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.attendees-table td {
+  padding: 15px;
+  vertical-align: top;
+  width: 50%;
+  background: #fcfcfc;
+}
+
+.attendees-table div {
+  margin-bottom: 6px;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.attendees-table em {
+  color: #888;
+  font-size: 0.9rem;
+  display: block;
+  text-align: center;
+}
+
+
+/* =========================
+   RSVP Form (Modal)
+========================= */
+.rsvp-form {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 40px 12px 12px; 
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  appearance: none; 
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.submit-btn {
+  background: #da8910;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover { transform: translateY(-2px); }
+
+
+/* =========================
+   Misc
+========================= */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+}

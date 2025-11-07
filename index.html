@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS User Group PH Events</title>
+
+    <!-- Link to your CSS file for layout and design -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Small emoji favicon so it shows an icon in the browser tab -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>">
+</head>
+<body>
+    <!-- Main container for all page content -->
+    <div class="container">
+        <!-- Header section with title and subtitle -->
+        <div class="header">
+            <h1>AWS User Group PH Events</h1>
+            <p>Discover and RSVP to our 2025 events!</p>
+        </div>
+
+        <!-- Events grid where event cards will be dynamically loaded -->
+        <div class="events-grid" id="eventsGrid">
+            <div class="loading">Loading events...</div>
+        </div>
+    </div>
+
+    <!-- Modal window for displaying event details when a user clicks an event -->
+    <div class="modal" id="eventModal">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <div class="modal-content" id="modalContent">
+            <!-- Event details will be dynamically inserted here -->
+        </div>
+    </div>
+
+
+    <!-- JavaScript files loaded at the end for faster page rendering -->
+    <script src="utils.js"></script>
+    <script src="events.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

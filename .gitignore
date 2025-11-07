@@ -1,0 +1,5 @@
+# Node dependencies
+node_modules/
+
+# OS junk
+.DS_Store
