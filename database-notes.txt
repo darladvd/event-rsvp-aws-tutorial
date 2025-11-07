@@ -1,0 +1,40 @@
+Creating your Table:
+
+CREATE TABLE events (
+  event_id      VARCHAR(64) PRIMARY KEY,
+  title         VARCHAR(200) NOT NULL,
+  description   TEXT,
+  start_at      DATETIME NOT NULL,
+  venue         VARCHAR(200),
+  banner_url    VARCHAR(500),
+  created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Inserting Sample Data:
+
+INSERT INTO events (event_id, title, description, start_at, venue, banner_url)
+VALUES
+(
+  'aws-meetup-manila-2025',
+  'AWS User Group Manila Monthly Meetup 2025',
+  'Join fellow builders for lightning talks, live demos, and networking with AWS enthusiasts in Manila.',
+  '2025-10-18 18:00:00',
+  'AWS PH Office, Bonifacio Global City',
+  ''
+),
+(
+  'aws-buildercards-tournament-2025',
+  'AWS BuilderCards Tournament 2025',
+  'Learn all about AWS BuilderCards.',
+  '2025-11-08 17:00:00',
+  'AWS PH Office, Bonifacio Global City',
+  ''
+),
+(
+  'aws-community-day-ph-2025',
+  'AWS Community Day Philippines 2025',
+  'The biggest gathering of AWS builders, user group leaders, and cloud enthusiasts in the Philippines — featuring talks, demos, and community showcases.',
+  '2025-11-30 09:00:00',
+  'AWS PH Office, Bonifacio Global City',
+  ''
+);
